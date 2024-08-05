@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class AgendamentoService {
@@ -26,5 +27,9 @@ public class AgendamentoService {
                 .dataHora(LocalDateTime.now())
                 .servicos(servicoService.listarPorId(request.getServicos()))
                 .build());
+    }
+
+    public List<Agendamento> listar(){
+        return agendamentoRepository.findAll();
     }
 }

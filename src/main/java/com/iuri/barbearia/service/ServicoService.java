@@ -22,6 +22,10 @@ public class ServicoService {
         return servicoRepository.save(Servico.converter(request));
     }
 
+    public List<Servico> listar(){
+        return servicoRepository.findAll();
+    }
+
     public List<Servico> listarPorId(List<Integer> id){
         return servicoRepository.findAllById(id);
     }

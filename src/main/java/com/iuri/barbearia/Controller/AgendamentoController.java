@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/agendamento")
 public class AgendamentoController {
@@ -23,5 +25,11 @@ public class AgendamentoController {
     @ResponseStatus(HttpStatus.CREATED)
     public Agendamento salvar(@RequestBody AgendamentoRequest request){
         return agendamentoService.salvar(request);
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<Agendamento> listar(){
+        return agendamentoService.listar();
     }
 }
