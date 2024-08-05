@@ -1,5 +1,6 @@
 package com.iuri.barbearia.model;
 
+import com.iuri.barbearia.dto.AgendamentoRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,4 +28,13 @@ public class Agendamento {
     private LocalDateTime dataHora;
     @ManyToMany
     private List<Servico> servicos;
+
+    private static Agendamento converter(AgendamentoRequest agendamentoRequest){
+        return Agendamento.builder()
+                .cliente(agendamentoRequest.getCliente())
+                .dataHora(LocalDateTime.now())
+                .servicos(agendamentoRequest.getServicos().stream()
+                        .map(Servico::new).toList())
+                .build();
+    }
 }

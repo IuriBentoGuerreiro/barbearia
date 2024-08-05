@@ -1,5 +1,6 @@
 package com.iuri.barbearia.model;
 
+import com.iuri.barbearia.dto.ServicoRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,4 +25,15 @@ public class Servico {
     private String nome;
     @Column(name = "preco")
     private BigDecimal preco;
+
+    public Servico(Integer id){
+        this.id = id;
+    }
+
+    private static Servico converter(ServicoRequest servicoRequest){
+        return Servico.builder()
+                .nome(servicoRequest.getNome())
+                .preco(servicoRequest.getPreco())
+                .build();
+    }
 }
