@@ -30,7 +30,7 @@ public class Servico {
         this.id = id;
     }
 
-    private static Servico converter(ServicoRequest servicoRequest){
+    public static Servico converter(ServicoRequest servicoRequest){
         return Servico.builder()
                 .nome(servicoRequest.getNome())
                 .preco(servicoRequest.getPreco())

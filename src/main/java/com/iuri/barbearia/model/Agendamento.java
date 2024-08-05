@@ -29,7 +29,7 @@ public class Agendamento {
     @ManyToMany
     private List<Servico> servicos;
 
-    private static Agendamento converter(AgendamentoRequest agendamentoRequest){
+    public static Agendamento converter(AgendamentoRequest agendamentoRequest){
         return Agendamento.builder()
                 .cliente(agendamentoRequest.getCliente())
                 .dataHora(LocalDateTime.now())
