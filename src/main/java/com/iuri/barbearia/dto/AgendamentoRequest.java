@@ -9,6 +9,6 @@ import java.util.List;
 public class AgendamentoRequest {
 
     private String cliente;
-    private LocalDateTime dataHora;
+    //private LocalDateTime dataHora;
     private List<Integer> servicos;
 }

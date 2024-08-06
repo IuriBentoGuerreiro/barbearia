@@ -29,4 +29,8 @@ public class ServicoService {
     public List<Servico> listarPorId(List<Integer> id){
         return servicoRepository.findAllById(id);
     }
+
+    public void deletar(Integer id){
+        servicoRepository.deleteById(id);
+    }
 }

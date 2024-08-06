@@ -31,4 +31,10 @@ public class ServicoController {
     public List<Servico> listar(){
         return servicoService.listar();
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletar(@PathVariable Integer id){
+        servicoService.deletar(id);
+    }
 }
