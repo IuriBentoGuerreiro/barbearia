@@ -32,4 +32,10 @@ public class AgendamentoController {
     public List<Agendamento> listar(){
         return agendamentoService.listar();
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletar(@PathVariable Integer id){
+        agendamentoService.deletar(id);
+    }
 }

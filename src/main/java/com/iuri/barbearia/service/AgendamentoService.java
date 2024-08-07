@@ -3,6 +3,7 @@ package com.iuri.barbearia.service;
 import com.iuri.barbearia.dto.AgendamentoRequest;
 import com.iuri.barbearia.model.Agendamento;
 import com.iuri.barbearia.repository.AgendamentoRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,5 +32,10 @@ public class AgendamentoService {
 
     public List<Agendamento> listar(){
         return agendamentoRepository.findAll();
+    }
+
+    @Transactional
+    public void deletar(Integer id){
+        agendamentoRepository.deleteById(id);
     }
 }
